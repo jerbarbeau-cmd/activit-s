@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f7f3">
+  <title>Mes tâches</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="heading">
+      <div class="topbar">
+        <p class="eyebrow"><span class="brand-mark" aria-hidden="true">✓</span> MON ESPACE</p>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">
+          <span id="theme-icon" aria-hidden="true">☾</span> Mode sombre
+        </button>
+      </div>
+      <p class="heading-kicker">UN JOUR À LA FOIS</p>
+      <h1>Mes tâches<span>.</span></h1>
+      <p class="intro">Un peu d’organisation, beaucoup de tranquillité.</p>
+    </header>
+
+    <section class="task-card" aria-labelledby="list-title">
+      <div class="card-intro">
+        <div>
+          <p class="section-kicker">VOTRE ESPACE</p>
+          <h2>Une chose à la fois.</h2>
+        </div>
+        <span class="card-decoration" aria-hidden="true">✳</span>
+      </div>
+      <form id="task-form" class="task-form">
+        <label class="field-label" for="task-input">Nouvelle tâche</label>
+        <input id="task-input" type="text" placeholder="Qu’avez-vous à faire ?" maxlength="200" required autocomplete="off">
+        <div class="category-field">
+          <label for="task-category">Catégorie</label>
+          <select id="task-category">
+            <option value="travail">Travail</option>
+            <option value="perso">Perso</option>
+            <option value="urgent">Urgent</option>
+          </select>
+        </div>
+        <div class="date-field">
+          <label for="task-due-date">Échéance (facultative)</label>
+          <input id="task-due-date" type="date" min="0001-01-01" max="9999-12-31">
+        </div>
+        <button class="add-button" type="submit"><span aria-hidden="true">+</span> Ajouter</button>
+      </form>
+
+      <p id="storage-warning" class="warning" role="alert" hidden></p>
+      <p id="theme-warning" class="warning" role="alert" hidden></p>
+
+      <div class="list-heading">
+        <h2 id="list-title">À faire</h2>
+        <p id="task-count" aria-live="polite"></p>
+      </div>
+      <div class="filter">
+        <div class="filter-field">
+          <label for="category-filter">Filtrer par catégorie</label>
+          <select id="category-filter">
+            <option value="toutes">Toutes</option>
+            <option value="travail">Travail</option>
+            <option value="perso">Perso</option>
+            <option value="urgent">Urgent</option>
+            <option value="sans-categorie">Sans catégorie</option>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label for="task-sort">Trier par</label>
+          <select id="task-sort">
+            <option value="ajout">Ordre d’ajout</option>
+            <option value="date">Échéance la plus proche</option>
+          </select>
+        </div>
+      </div>
+      <ul id="task-list" class="task-list"></ul>
+      <div id="empty-state" class="empty-state">
+        <div class="empty-icon" aria-hidden="true">✓</div>
+        <p id="empty-title">Tout est en ordre !</p>
+        <span id="empty-description">Ajoutez une tâche pour commencer.</span>
+      </div>
+    </section>
+    <p class="footer">Vos tâches restent dans ce navigateur.</p>
+  </main>
+</body>
+</html>
